@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function userInput(){
+            let user = prompt("enter rock paper or scissors: ").toLowerCase();
+            console.log("user: ", user);
+            return user;
+        }
+
+        function computerChoice(){
+            let choice = Math.floor(Math.random() * 3);
+            if (choice === 0){
+                choice = "rock";
+            }else if (choice === 1){
+                choice = "paper";
+            }else {
+                choice = "scissors"
+            }
+            console.log("computerChoice: ",choice);
+            return choice;
+        }
+
+        function game(){
+            let played = 0;
+            let won = 0;
+            for (let i=0;i<5;i++){
+                let userChoice = userInput();
+                let aiChoice = computerChoice();
+        
+                function play(userInput, computerChoice){
+            if (userInput === "rock" && computerChoice === "paper"){
+                console.log("you lose!");
+                played+=1;
+            }
+            else if (userInput === "rock" && computerChoice === "scissors"){
+                console.log("you win!");
+                played+=1;
+                won+=1;
+            }
+            else if(userInput === "paper" && computerChoice === "scissors"){
+                console.log("you lose!")
+                played+=1;
+            }
+            else if(userInput === "paper" && computerChoice === "rock"){
+                console.log("you win!");
+                played+=1;
+                won+=1;
+            }else if(userInput === "scissors" && computerChoice === "rock"){
+                console.log("you lose!");
+                played+=1;
+            }
+            else if(userInput === "scissors" && computerChoice === "paper"){
+                console.log("you win!");
+                played+=1;
+                won+=1;
+            }
+            else {
+                console.log("draw!!!!!")
+                played+=1;
+            }
+         }
+            play(userChoice, aiChoice);
+            }
+            
+            console.log("games played: ", played);
+            console.log("games won: ", won);
+        }
+        game();
+       
+
+         
+
+         
+    </script>
+</body>
+</html>
